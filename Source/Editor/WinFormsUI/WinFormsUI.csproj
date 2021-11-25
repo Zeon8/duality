@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0-windows</TargetFramework>
+	  <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AssemblyName>WeifenLuo.WinFormsUI.Docking</AssemblyName>
+    <RootNamespace>WeifenLuo.WinFormsUI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Docking\Resources\DockIndicator_PaneDiamond.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PaneDiamond_Bottom.bmp" />
+    <None Remove="Docking\Resources\Dockindicator_PaneDiamond_Fill.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PaneDiamond_Hotspot.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PaneDiamond_HotspotIndex.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PaneDiamond_Left.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PaneDiamond_Right.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PaneDiamond_Top.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelBottom.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelBottom_Active.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelFill.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelFill_Active.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelLeft.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelLeft_Active.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelRight.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelRight_Active.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelTop.bmp" />
+    <None Remove="Docking\Resources\DockIndicator_PanelTop_Active.bmp" />
+    <None Remove="Docking\Resources\DockPane_AutoHide.bmp" />
+    <None Remove="Docking\Resources\DockPane_Close.bmp" />
+    <None Remove="Docking\Resources\DockPane_Dock.bmp" />
+    <None Remove="Docking\Resources\DockPane_Option.bmp" />
+    <None Remove="Docking\Resources\DockPane_OptionOverflow.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PaneDiamond.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PaneDiamond_Bottom.bmp" />
+    <EmbeddedResource Include="Docking\Resources\Dockindicator_PaneDiamond_Fill.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PaneDiamond_Hotspot.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PaneDiamond_HotspotIndex.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PaneDiamond_Left.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PaneDiamond_Right.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PaneDiamond_Top.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelBottom.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelBottom_Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelFill.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelFill_Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelLeft.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelLeft_Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelRight.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelRight_Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelTop.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockIndicator_PanelTop_Active.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPane_AutoHide.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPane_Close.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPane_Dock.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPane_Option.bmp" />
+    <EmbeddedResource Include="Docking\Resources\DockPane_OptionOverflow.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

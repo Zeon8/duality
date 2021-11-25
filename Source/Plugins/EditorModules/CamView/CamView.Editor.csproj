@@ -1,76 +1,47 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>4.0.0-alpha3</Version>
-    <Copyright>Copyright © Duality Core Team 2020</Copyright>
-    <RootNamespace>Duality.Editor.Plugins.CamView</RootNamespace>
-    <UseWindowsForms>true</UseWindowsForms>
-    <EmbeddedResourceUseDependentUponConvention>true</EmbeddedResourceUseDependentUponConvention>
-    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+	  <TargetFramework>net6.0-windows</TargetFramework>
+	  <Nullable>disable</Nullable>
+	  <UseWindowsForms>true</UseWindowsForms>
+	  <ImplicitUsings>disable</ImplicitUsings>
+	  <RootNamespace>Duality.Editor.Plugins.CamView</RootNamespace>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="AdamsLair.DockPanelSuite">
-      <Version>2.8.2</Version>
-    </PackageReference>
-    <PackageReference Include="AdamsLair.WinForms">
-      <Version>1.1.17</Version>
-    </PackageReference>
+    <EmbeddedResource Include="EmbeddedResources\curArrowCreateCircle.png" />
+    <EmbeddedResource Include="EmbeddedResources\curArrowCreateEdge.png" />
+    <EmbeddedResource Include="EmbeddedResources\curArrowCreateLoop.png" />
+    <EmbeddedResource Include="EmbeddedResources\curArrowCreatePolygon.png" />
+    <EmbeddedResource Include="EmbeddedResources\curArrowEditVertices.png" />
+    <EmbeddedResource Include="EmbeddedResources\eye.ico" />
+    <EmbeddedResource Include="EmbeddedResources\iconCmpCircleCollider.png" />
+    <EmbeddedResource Include="EmbeddedResources\iconCmpEdgeCollider.png" />
+    <EmbeddedResource Include="EmbeddedResources\iconCmpEditVertices.png" />
+    <EmbeddedResource Include="EmbeddedResources\iconCmpLoopCollider.png" />
+    <EmbeddedResource Include="EmbeddedResources\iconCmpRectCollider.png" />
+    <EmbeddedResource Include="EmbeddedResources\iconShapeSelect.png" />
+    <EmbeddedResource Include="EmbeddedResources\layers.png" />
+    <EmbeddedResource Include="EmbeddedResources\magnifier_one.png" />
+    <EmbeddedResource Include="EmbeddedResources\monitor.png" />
+    <EmbeddedResource Include="EmbeddedResources\ObjectVisibility.png" />
+    <EmbeddedResource Include="EmbeddedResources\ObjectVisibilityFiltered.png" />
+    <EmbeddedResource Include="EmbeddedResources\RenderSetup.png" />
+    <EmbeddedResource Include="EmbeddedResources\shape_perspective.png" />
+    <EmbeddedResource Include="EmbeddedResources\SnapToGrid.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Editor\DualityEditor\DualityEditor.csproj">
-      <Project>{9FB9F397-FD39-460C-A9AD-B4780D19945F}</Project>
-      <Name>DualityEditor</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Primitives\DualityPrimitives.csproj">
-      <Project>{c87a6a2f-e537-48fa-a789-3c54cf29cc09}</Project>
-      <Name>DualityPrimitives</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Duality\Duality.csproj">
-      <Project>{D821AFB9-BCC9-4025-9A9C-798E2BC546AB}</Project>
-      <Name>Duality</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <PackageReference Include="System.Resources.Extensions" Version="4.6.0" />
+    <ProjectReference Include="..\..\..\Core\Duality\Duality.csproj" />
+    <ProjectReference Include="..\..\..\Editor\AdamsLair.WinForms\AdamsLair.WinForms.csproj" />
+    <ProjectReference Include="..\..\..\Editor\Aga.Controls\Aga.Controls.csproj" />
+    <ProjectReference Include="..\..\..\Editor\DualityEditor\DualityEditor.csproj" />
+    <ProjectReference Include="..\..\..\Editor\WinFormsUI\WinFormsUI.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-
-    <EmbeddedResource Update="Properties\CamViewRes.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CamViewRes.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Update="Properties\CamViewRes.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CamViewRes.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-
-  <Target Name="AggregateOutput" BeforeTargets="AfterBuild">
-    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(RootFolder)Build\Output\Plugins\" />
-    <Copy SourceFiles="$(OutputPath)$(AssemblyName).pdb" DestinationFolder="$(RootFolder)Build\Output\Plugins\" />
-    <Copy SourceFiles="$(OutputPath)$(AssemblyName).xml" DestinationFolder="$(RootFolder)Build\Output\Plugins\" />
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /Y $(TargetPath) $(SolutionDir)Build\Output\Plugins" />
   </Target>
 
 </Project>

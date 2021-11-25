@@ -1,4 +1,5 @@
-﻿using System;
+﻿#pragma warning disable CS0618
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
@@ -83,6 +84,7 @@ namespace Duality.Editor
 			this.PluginLog.PopIndent();
 		}
 
+
 		/// <summary>
 		/// Saves all editor plugin user data into the provided settings object.
 		/// </summary>
@@ -109,6 +111,7 @@ namespace Duality.Editor
 
 			settings.OldStyleSettings = parentElement;
 		}
+
 		/// <summary>
 		/// Loads all editor plugin user data from the provided settings object.
 		/// </summary>

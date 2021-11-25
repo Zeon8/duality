@@ -641,7 +641,7 @@ namespace Duality
 		/// </summary>
 		/// <param name="obj">The object to compare to.</param>
 		/// <returns>True if the instances are equal; false otherwise.</returns>
-		public override bool Equals(object obj)
+		public override bool Equals(object? obj)
 		{
 			if (!(obj is Vector4))
 				return false;

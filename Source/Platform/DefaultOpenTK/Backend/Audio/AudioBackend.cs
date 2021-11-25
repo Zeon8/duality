@@ -125,7 +125,7 @@ namespace Duality.Backend.DefaultOpenTK
 				this.streamWorkerEnd = true;
 				if (!this.streamWorker.Join(1000))
 				{
-					this.streamWorker.Abort();
+					//this.streamWorker.Abort();
 				}
 				this.streamWorkerQueueEvent.Dispose();
 				this.streamWorkerEnd = false;

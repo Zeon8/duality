@@ -12,6 +12,7 @@ using Duality.Editor.Controls;
 using Duality.Editor.Properties;
 
 using AdamsLair.WinForms.PropertyEditing;
+using PropertyGrid = AdamsLair.WinForms.PropertyEditing.PropertyGrid;
 
 namespace Duality.Editor.UndoRedoActions
 {

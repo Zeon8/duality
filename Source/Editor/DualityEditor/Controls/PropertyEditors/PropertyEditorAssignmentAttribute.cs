@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 using AdamsLair.WinForms.PropertyEditing;
-
+using PropertyGrid = AdamsLair.WinForms.PropertyEditing.PropertyGrid;
 
 namespace Duality.Editor
 {

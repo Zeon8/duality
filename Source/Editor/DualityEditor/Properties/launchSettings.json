@@ -1,7 +1,8 @@
 {
   "profiles": {
     "DualityEditor": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "workingDirectory": "$(SolutionDir)Build\\Output"
     },
     "Debug Sample": {
       "commandName": "Executable",

@@ -13,7 +13,7 @@ namespace Duality.Backend.DefaultOpenTK
 		/// </summary>
 		/// <param name="x"></param>
 		/// <param name="y"></param>
-		public bool Equals(GraphicsMode x, GraphicsMode y)
+		public bool Equals(OpenTK.Graphics.GraphicsMode x, GraphicsMode y)
 		{
 			return 
 				x.AccumulatorFormat == y.AccumulatorFormat &&

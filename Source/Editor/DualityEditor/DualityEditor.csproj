@@ -1,90 +1,80 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net472</TargetFramework>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<LangVersion>7.3</LangVersion>
-		<OutputPath>$(RootFolder)Build\Output\</OutputPath>
-		<Version>4.0.0-alpha3</Version>
-		<Copyright>Copyright © Duality Core Team 2020</Copyright>
-		<RootNamespace>Duality.Editor</RootNamespace>
-		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<OutputType>WinExe</OutputType>
-		<UseWindowsForms>true</UseWindowsForms>
-		<ApplicationIcon>DualityLogoIcon.ico</ApplicationIcon>
-		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<EmbeddedResourceUseDependentUponConvention>true</EmbeddedResourceUseDependentUponConvention>
-		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
-	</PropertyGroup>
-
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	  <RootNamespace>Duality.Editor</RootNamespace>
+	  <ApplicationIcon>DualityIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="copy $(TargetDir)*.* $(SolutionDir)Build\Output\" />
+	</Target>
 	<ItemGroup>
-		<ProjectReference Include="..\..\Core\Primitives\DualityPrimitives.csproj">
-			<Project>{c87a6a2f-e537-48fa-a789-3c54cf29cc09}</Project>
-			<Name>DualityPrimitives</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\..\Core\Duality\Duality.csproj">
-			<Project>{D821AFB9-BCC9-4025-9A9C-798E2BC546AB}</Project>
-			<Name>Duality</Name>
-		</ProjectReference>
+	  <Content Include="DualityIcon.ico" />
 	</ItemGroup>
-
+	
 	<ItemGroup>
-		<PackageReference Include="AdamsLair.DockPanelSuite">
-			<Version>2.8.2</Version>
-		</PackageReference>
-		<PackageReference Include="AdamsLair.TreeViewAdv">
-			<Version>1.7.7</Version>
-		</PackageReference>
-		<PackageReference Include="AdamsLair.WinForms" GeneratePathProperty="true">
-			<Version>1.1.17</Version>
-		</PackageReference>
-		<PackageReference Include="Microsoft.Web.Xdt">
-			<Version>2.1.1</Version>
-		</PackageReference>
-		<PackageReference Include="System.Resources.Extensions" Version="4.6.0" />
-		<EmbeddedResource Update="Properties\GeneralRes.resx">
-			<Generator>PublicResXFileCodeGenerator</Generator>
-			<SubType>Designer</SubType>
-			<LastGenOutput>GeneralRes.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<Compile Update="Properties\GeneralRes.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DesignTime>True</DesignTime>
-			<DependentUpon>GeneralRes.resx</DependentUpon>
-		</Compile>
-
-		<EmbeddedResource Update="Properties\Resources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-		<Compile Update="Properties\Resources.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Resources.resx</DependentUpon>
-			<DesignTime>True</DesignTime>
-		</Compile>
-
-		<None Update="Properties\Settings.settings">
-			<Generator>SettingsSingleFileGenerator</Generator>
-			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
-		</None>
-		<Compile Update="Properties\Settings.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Settings.settings</DependentUpon>
-			<DesignTimeSharedInput>True</DesignTimeSharedInput>
-		</Compile>
+	  <EmbeddedResource Include="EmbeddedResources\add.png" />
+	  <EmbeddedResource Include="EmbeddedResources\application_bug.png" />
+	  <EmbeddedResource Include="EmbeddedResources\application_create.png" />
+	  <EmbeddedResource Include="EmbeddedResources\application_go.png" />
+	  <EmbeddedResource Include="EmbeddedResources\application_stopwatch.png" />
+	  <EmbeddedResource Include="EmbeddedResources\arrow_redo.png" />
+	  <EmbeddedResource Include="EmbeddedResources\arrow_refresh.png" />
+	  <EmbeddedResource Include="EmbeddedResources\arrow_undo.png" />
+	  <EmbeddedResource Include="EmbeddedResources\AssetImporter.png" />
+	  <EmbeddedResource Include="EmbeddedResources\Class.png" />
+	  <EmbeddedResource Include="EmbeddedResources\clock.png" />
+	  <EmbeddedResource Include="EmbeddedResources\cog.ico" />
+	  <EmbeddedResource Include="EmbeddedResources\color_pick.png" />
+	  <EmbeddedResource Include="EmbeddedResources\control_pause_blue.png" />
+	  <EmbeddedResource Include="EmbeddedResources\control_play_blue.png" />
+	  <EmbeddedResource Include="EmbeddedResources\control_step_blue.png" />
+	  <EmbeddedResource Include="EmbeddedResources\control_stop_blue.png" />
+	  <EmbeddedResource Include="EmbeddedResources\cross.png" />
+	  <EmbeddedResource Include="EmbeddedResources\CursorArrow.png" />
+	  <EmbeddedResource Include="EmbeddedResources\CursorArrowAction.png" />
+	  <EmbeddedResource Include="EmbeddedResources\CursorArrowActionMove.png" />
+	  <EmbeddedResource Include="EmbeddedResources\CursorArrowActionRotate.png" />
+	  <EmbeddedResource Include="EmbeddedResources\CursorArrowActionScale.png" />
+	  <EmbeddedResource Include="EmbeddedResources\CursorHandGrab.png" />
+	  <EmbeddedResource Include="EmbeddedResources\CursorHandGrabbing.png" />
+	  <EmbeddedResource Include="EmbeddedResources\disk_multiple.png" />
+	  <EmbeddedResource Include="EmbeddedResources\dockpanel.xml" />
+	  <EmbeddedResource Include="EmbeddedResources\drive_disk.png" />
+	  <EmbeddedResource Include="EmbeddedResources\DualitorLogoHalfSize.png" />
+	  <EmbeddedResource Include="EmbeddedResources\DualityIcon256.png" />
+	  <EmbeddedResource Include="EmbeddedResources\DualityIcon48.png" />
+	  <EmbeddedResource Include="EmbeddedResources\DualityLogoIcon256.png" />
+	  <EmbeddedResource Include="EmbeddedResources\DualityLogoIcon48.png" />
+	  <EmbeddedResource Include="EmbeddedResources\icon_color.png" />
+	  <EmbeddedResource Include="EmbeddedResources\namespace.png" />
+	  <EmbeddedResource Include="EmbeddedResources\page_code.png" />
+	  <EmbeddedResource Include="EmbeddedResources\page_gear.png" />
+	  <EmbeddedResource Include="EmbeddedResources\page_white.png" />
+	  <EmbeddedResource Include="EmbeddedResources\page_white_csharp.png" />
+	  <EmbeddedResource Include="EmbeddedResources\WorkingFolderIcon.ico" />
+	  <EmbeddedResource Include="EmbeddedResources\working_bigtask.png" />
 	</ItemGroup>
-
 	<ItemGroup>
-		<Reference Include="Microsoft.Build" />
-		<Reference Include="System.IO.Compression" />
-		<Reference Include="System.Windows.Forms" />
-		<Reference Include="VistaBridgeLibrary">
-			<HintPath>VistaBridgeLibrary.dll</HintPath>
-		</Reference>
-		<Reference Include="Windows7.DesktopIntegration">
-			<HintPath>Windows7.DesktopIntegration.dll</HintPath>
-		</Reference>
+	  <PackageReference Include="Microsoft.Build" Version="17.0.0" />
 	</ItemGroup>
-
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Core\Duality\Duality.csproj" />
+	  <ProjectReference Include="..\AdamsLair.WinForms\AdamsLair.WinForms.csproj" />
+	  <ProjectReference Include="..\Aga.Controls\Aga.Controls.csproj" />
+	  <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="VistaBridgeLibrary">
+	    <HintPath>VistaBridgeLibrary.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Windows7.DesktopIntegration">
+	    <HintPath>Windows7.DesktopIntegration.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 </Project>

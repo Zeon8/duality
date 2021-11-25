@@ -485,7 +485,7 @@ namespace Duality
 				this.W == other.W &&
 				this.H == other.H;
 		}
-		public override bool Equals(object obj)
+		public override bool Equals(object? obj)
 		{
 			if (!(obj is Rect))
 				return false;

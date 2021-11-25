@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0-windows</TargetFramework>
+	  <UseWindowsForms>true</UseWindowsForms>
+	  <ImplicitUsings>disable</ImplicitUsings>
+	  <Nullable>disable</Nullable>
+	  <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\check.bmp" />
+    <None Remove="Resources\DVSplit.cur" />
+    <None Remove="Resources\Folder.bmp" />
+    <None Remove="Resources\FolderClosed.bmp" />
+    <None Remove="Resources\Leaf.bmp" />
+    <None Remove="Resources\loading_icon" />
+    <None Remove="Resources\minus.bmp" />
+    <None Remove="Resources\plus.bmp" />
+    <None Remove="Resources\Thumbs.db" />
+    <None Remove="Resources\uncheck.bmp" />
+    <None Remove="Resources\unknown.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\check.bmp" />
+    <EmbeddedResource Include="Resources\DVSplit.cur" />
+    <EmbeddedResource Include="Resources\Folder.bmp" />
+    <EmbeddedResource Include="Resources\FolderClosed.bmp" />
+    <EmbeddedResource Include="Resources\Leaf.bmp" />
+    <EmbeddedResource Include="Resources\loading_icon" />
+    <EmbeddedResource Include="Resources\minus.bmp" />
+    <EmbeddedResource Include="Resources\plus.bmp" />
+    <EmbeddedResource Include="Resources\Thumbs.db" />
+    <EmbeddedResource Include="Resources\uncheck.bmp" />
+    <EmbeddedResource Include="Resources\unknown.bmp" />
+  </ItemGroup>
+
+</Project>

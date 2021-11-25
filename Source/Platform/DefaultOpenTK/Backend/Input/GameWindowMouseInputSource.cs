@@ -8,7 +8,7 @@ using TKMouseState = OpenTK.Input.MouseState;
 using TKMouseMoveEventArgs = OpenTK.Input.MouseMoveEventArgs;
 using TKMouseWheelEventArgs = OpenTK.Input.MouseWheelEventArgs;
 using TKMouseButtonEventArgs = OpenTK.Input.MouseButtonEventArgs;
-
+using System.Drawing;
 
 namespace Duality.Backend.DefaultOpenTK
 {
@@ -42,7 +42,7 @@ namespace Duality.Backend.DefaultOpenTK
 			get { return new Point2(this.mouseState.X, this.mouseState.Y); }
 			set
 			{
-				System.Drawing.Point screenPoint = this.window.PointToScreen(new System.Drawing.Point(value.X, value.Y));
+				Point screenPoint = this.window.PointToScreen(new Point(value.X, value.Y));
 				OpenTK.Input.Mouse.SetPosition(screenPoint.X, screenPoint.Y);
 			}
 		}

@@ -859,9 +859,9 @@ namespace Duality.Backend.DefaultOpenTK
 				case IndexDataElementType.UnsignedShort: return DrawElementsType.UnsignedShort;
 			}
 		}
-		private static void GetOpenTKMatrix(ref Matrix4 source, out OpenTK.Matrix4 target)
+		private static void GetOpenTKMatrix(ref Matrix4 source, out Matrix4 target)
 		{
-			target = new OpenTK.Matrix4(
+			target = new Matrix4(
 				source.M11, source.M12, source.M13, source.M14,
 				source.M21, source.M22, source.M23, source.M24,
 				source.M31, source.M32, source.M33, source.M34,

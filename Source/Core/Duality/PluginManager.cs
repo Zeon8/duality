@@ -422,6 +422,12 @@ namespace Duality
 				args.Resolve(plugin.PluginAssembly);
 				return;
 			}
+			string execPath = Directory.GetCurrentDirectory();
+			string fileName = Path.Combine(execPath, Path.GetFileName(args.AssemblyName))+".dll";
+			if (File.Exists(fileName))
+			{
+				args.Resolve(Assembly.LoadFile(fileName));
+			}
 		}
 	}
 }

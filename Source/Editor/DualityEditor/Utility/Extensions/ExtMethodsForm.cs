@@ -37,6 +37,7 @@ namespace Duality.Editor
         {
 			try
 			{
+
 				WindowsFormsExtensions.SetTaskbarOverlayIcon(form, icon, description);
 			}
 			catch (Exception) {} // Library might fail in Windows Vista and before

@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Duality.Editor
 {

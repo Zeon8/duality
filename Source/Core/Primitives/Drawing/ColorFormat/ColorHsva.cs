@@ -264,7 +264,7 @@ namespace Duality.Drawing
 		{
 			return this.H == other.H && this.S == other.S && this.V == other.V && this.A == other.A;
 		}
-		public override bool Equals(object obj)
+		public override bool Equals(object? obj)
 		{
 			if (!(obj is ColorHsva))
 				return false;

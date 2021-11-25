@@ -130,8 +130,10 @@ namespace Duality.Backend.DefaultOpenTK
 					executablePath = Path.GetFullPath(entryAssembly.Location);
 					if (File.Exists(executablePath))
 					{
-						this.internalWindow.Icon = Icon.ExtractAssociatedIcon(executablePath);
-					}
+#pragma warning disable CA1416 // Validate platform compatibility
+                        this.internalWindow.Icon = Icon.ExtractAssociatedIcon(executablePath);
+#pragma warning restore CA1416 // Validate platform compatibility
+                    }
 				}
 			}
 			// As described in issue 301 (https://github.com/AdamsLair/duality/issues/301), the
