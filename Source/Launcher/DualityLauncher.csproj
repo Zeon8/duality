@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -24,7 +24,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\Duality\Duality.csproj" />
   </ItemGroup>
+  
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy /Y $(TargetDir)\*.* $(SolutionDir)Build\Output" />
+    <ItemGroup>
+      <OutputFiles Include="$(TargetDir)*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(SolutionDir)Build/Output/" />
   </Target>
+
 </Project>

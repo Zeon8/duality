@@ -1,15 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net6.0-windows</TargetFramework>
+	  <TargetFramework>net8.0-windows</TargetFramework>
 	  <Nullable>disable</Nullable>
 	  <UseWindowsForms>true</UseWindowsForms>
 	  <ImplicitUsings>disable</ImplicitUsings>
 	  <RootNamespace>Duality.Editor.Plugins.SceneView</RootNamespace>
   </PropertyGroup>
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="copy /Y $(TargetPath) $(SolutionDir)Build\Output\Plugins" />
-	</Target>
+
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\Core\Duality\Duality.csproj" />
 	  <ProjectReference Include="..\..\..\Editor\AdamsLair.WinForms\AdamsLair.WinForms.csproj" />
@@ -17,4 +15,9 @@
 	  <ProjectReference Include="..\..\..\Editor\DualityEditor\DualityEditor.csproj" />
 	  <ProjectReference Include="..\..\..\Editor\WinFormsUI\WinFormsUI.csproj" />
 	</ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SolutionDir)Build/Output/Plugins/" />
+  </Target>
+  
 </Project>

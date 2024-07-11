@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net6.0-windows</TargetFramework>
+	  <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AdamsLair.OpenTK" Version="1.2.2" />
-    <PackageReference Include="AdamsLair.OpenTK.GLControl" Version="1.2.2" />
+    <PackageReference Include="AdamsLair.OpenTK.GLControl" Version="1.2.2" GeneratePathProperty="true"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy /Y $(TargetPath)*.* $(SolutionDir)Build\Output\Plugins" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SolutionDir)Build/Output/Plugins/"/>
+    <Copy SourceFiles="$(PkgAdamsLair_OpenTK_GLControl)/lib/net20/OpenTK.GLControl.dll" DestinationFolder="$(SolutionDir)Build/Output/Plugins/" />
   </Target>
 
 </Project>

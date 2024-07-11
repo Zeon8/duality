@@ -4,6 +4,11 @@
       "commandName": "Project",
       "commandLineArgs": "debug",
       "workingDirectory": "$(SolutionDir)Build\\Output"
+    },
+    "Debug Sample": {
+      "commandName": "Executable",
+      "executablePath": "$(SolutionDir)Build\\Output\\DualityLauncher.exe",
+      "workingDirectory": "$(SolutionDir)Samples\\DualStickSpaceShooter\\Content"
     }
   }
 }

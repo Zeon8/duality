@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
@@ -10,9 +10,7 @@
 	  <RootNamespace>Duality.Editor</RootNamespace>
 	  <ApplicationIcon>DualityIcon.ico</ApplicationIcon>
   </PropertyGroup>
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="copy $(TargetDir)*.* $(SolutionDir)Build\Output\" />
-	</Target>
+
 	<ItemGroup>
 	  <Content Include="DualityIcon.ico" />
 	</ItemGroup>
@@ -60,15 +58,18 @@
 	  <EmbeddedResource Include="EmbeddedResources\WorkingFolderIcon.ico" />
 	  <EmbeddedResource Include="EmbeddedResources\working_bigtask.png" />
 	</ItemGroup>
+  
 	<ItemGroup>
-	  <PackageReference Include="Microsoft.Build" Version="17.0.0" />
+	  <PackageReference Include="Microsoft.Build" Version="17.10.4" />
 	</ItemGroup>
+  
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Core\Duality\Duality.csproj" />
 	  <ProjectReference Include="..\AdamsLair.WinForms\AdamsLair.WinForms.csproj" />
 	  <ProjectReference Include="..\Aga.Controls\Aga.Controls.csproj" />
 	  <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj" />
 	</ItemGroup>
+  
 	<ItemGroup>
 	  <Reference Include="VistaBridgeLibrary">
 	    <HintPath>VistaBridgeLibrary.dll</HintPath>
@@ -77,4 +78,12 @@
 	    <HintPath>Windows7.DesktopIntegration.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <ItemGroup>
+      <OutputFiles Include="$(TargetDir)*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(SolutionDir)Build/Output/" />
+  </Target>
+  
 </Project>

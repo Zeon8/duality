@@ -1,10 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,22 +21,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AdamsLair.OpenTK" Version="1.2.2" />
-    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="AdamsLair.OpenTK" Version="1.2.2" GeneratePathProperty="true" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Duality\Duality.csproj" />
   </ItemGroup>
-	<Target Name="AggregateOutput" BeforeTargets="AfterBuild">
-		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(RootFolder)Build\Output\Plugins\" />
-		<Copy SourceFiles="$(OutputPath)$(AssemblyName).pdb" DestinationFolder="$(RootFolder)Build\Output\Plugins\" />
-		<Copy SourceFiles="$(ProjectDir)..\opentk\Binaries\OpenTK\Release\OpenTK.GLControl.dll" DestinationFolder="$(RootFolder)Build\Output\" />
-		<Copy SourceFiles="$(ProjectDir)..\opentk\Binaries\OpenTK\Release\OpenTK.GLControl.xml" DestinationFolder="$(RootFolder)Build\Output\" />
-		<Copy SourceFiles="$(ProjectDir)..\opentk\Binaries\OpenTK\Release\OpenTK.dll" DestinationFolder="$(RootFolder)Build\Output\" />
-		<Copy SourceFiles="$(ProjectDir)..\opentk\Binaries\OpenTK\Release\OpenTK.xml" DestinationFolder="$(RootFolder)Build\Output\" />		
-	</Target>
+
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="copy /Y $(TargetPath) $(SolutionDir)Build\Output\Plugins&#xD;&#xA;copy /Y $(TargetDir)OpenTK.* $(SolutionDir)Build\Output\Plugins&#xD;&#xA;copy /Y $(TargetDir)OpenAL*.* $(SolutionDir)Build\Output" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SolutionDir)Build/Output/Plugins/" />
+    <Copy SourceFiles="$(PkgAdamsLair_OpenTK)/lib/net20/OpenTK.dll" DestinationFolder="$(SolutionDir)Build/Output/Plugins/" />
+    <Copy SourceFiles="$(PkgAdamsLair_OpenTK)/lib/net20/OpenTK.xml" DestinationFolder="$(SolutionDir)Build/Output/Plugins/" />
+    <ItemGroup>
+      <OutputOpenAL Include="$(TargetDir)OpenALSoft*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(OutputOpenAL)" DestinationFolder="$(SolutionDir)Build/Output/" />
 	</Target>
+  
 </Project>
